@@ -1,5 +1,9 @@
 from django.db import models
 
+class RestaurantName(models.Model):
+    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -24,6 +28,7 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.title
+        
     def json(self):
         return {
             'id': self.id,
@@ -33,3 +38,10 @@ class MenuItem(models.Model):
             'category': {'title': self.category_id.name},
             'cuisine': {'title': self.cuisine_id.types}
         }
+
+class RestaurantNameMenuItem(models.Model):
+    restaurantname_id = models.ForeignKey(RestaurantName, on_delete=models.CASCADE)
+    MenuItem_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+
+    # def __str__(self):
+    #     return self.restaurantname_id + ", " + self.MenuItem_id
