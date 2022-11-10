@@ -24,3 +24,12 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.title
+    def json(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'price': self.price,
+            'category': {'title': self.category_id.name},
+            'cuisine': {'title': self.cuisine_id.types}
+        }

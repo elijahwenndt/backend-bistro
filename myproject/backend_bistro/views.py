@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import backend_bistro
+from .models import MenuItem
+import json
 # Create your views here.
 
 def get_menu(request):
-    bistro_menu = list(backend_bistro.objects.values())
+    # data = list(MenuItem.objects.values('title', 'description', 'price', 'spice_level', 'category_id__name', 'cuisine_id__types'))
+    # return JsonResponse(data, safe=False)
+    data = [i.json() for i in MenuItem.objects.all()]
 
-    return JsonResponse ({'data': bistro_menu})
+    return HttpResponse(json.dumps(data), content_type="application/json")
