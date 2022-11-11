@@ -45,7 +45,7 @@ class MenuItem(models.Model):
         return {
             'id': self.id,
             'title': self.title,
-            'descriptions': self.description,
+            'description': self.description,
             'ingredients': ingredients,
             'price': self.price,
             'category': {'title': self.category_id.name},
