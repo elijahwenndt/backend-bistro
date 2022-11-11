@@ -13,6 +13,6 @@ def get_menu(request):
 
 # def get_name(request):
 
-    # data = [i.json() for i in RestaurantName.objects.all()]
+#     data = [i.json() for i in RestaurantName.objects.all()]
 
-    # return HttpResponse(json.dumps(data), content_type="application/json")
+#     return HttpResponse(json.dumps(data), content_type="application/json")
