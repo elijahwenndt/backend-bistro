@@ -54,3 +54,4 @@ class MenuItem(models.Model):
         }
 
 
+# REFERENCE https://www.yellowduck.be/posts/outputting-django-queryset-json

@@ -16,3 +16,5 @@ def get_menu(request):
 #     data = [i.json() for i in RestaurantName.objects.all()]
 
 #     return HttpResponse(json.dumps(data), content_type="application/json")
+
+# REFERENCE https://www.yellowduck.be/posts/outputting-django-queryset-json
