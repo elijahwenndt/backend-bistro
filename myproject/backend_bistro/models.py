@@ -2,8 +2,15 @@ from django.db import models
 
 class RestaurantName(models.Model):
     name = models.CharField(max_length=50)
+    items = models.ManyToManyField('MenuItem')
     def __str__(self):
         return self.name
+
+    # def json(self):
+    #     return {
+    #         'name': self.name,
+    #         'items': self.items
+    #     }
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -39,9 +46,4 @@ class MenuItem(models.Model):
             'cuisine': {'title': self.cuisine_id.types}
         }
 
-class RestaurantNameMenuItem(models.Model):
-    restaurantname_id = models.ForeignKey(RestaurantName, on_delete=models.CASCADE)
-    MenuItem_id = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
 
-    # def __str__(self):
-    #     return self.restaurantname_id + ", " + self.MenuItem_id
